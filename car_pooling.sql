@@ -27,14 +27,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `address` (
-  `Street` varchar(40) NOT NULL,
-  `Apt_No` varchar(6) NOT NULL,
-  `Zip_Code` varchar(10) NOT NULL,
-  `City` varchar(20) NOT NULL,
-  `State` varchar(2) NOT NULL,
-  `User_Id` varchar(20) NOT NULL,
-  `Address_Id` int(10) NOT NULL,
-  PRIMARY KEY (`Address_Id`)
+  `street` varchar(40) NOT NULL,
+  `aptNo` varchar(6) NOT NULL,
+  `zipCode` varchar(10) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `state` varchar(2) NOT NULL,
+  `userId` varchar(20) NOT NULL,
+  `addressId` int(10) NOT NULL,
+  PRIMARY KEY (`addressId`)
+  FOREIGN KEY ('userId') REFERENCES user(userId)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -44,13 +45,15 @@ CREATE TABLE IF NOT EXISTS `address` (
 --
 
 CREATE TABLE IF NOT EXISTS `reservation` (
-  `Reservation_ID` varchar(20) NOT NULL,
-  `User` varchar(20) NOT NULL,
-  `Time_Departure` datetime NOT NULL,
-  `Origin` varchar(60) NOT NULL,
-  `Destination` varchar(60) NOT NULL,
-  `Vin_Number` varchar(17) NOT NULL,
-  PRIMARY KEY (`Reservation_ID`)
+  `reservationId` varchar(20) NOT NULL,
+  `userId` varchar(20) NOT NULL,
+  `timeDeparture` datetime NOT NULL,
+  `origin` varchar(60) NOT NULL,
+  `destination` varchar(60) NOT NULL,
+  `vinNumber` varchar(17) NOT NULL,
+  PRIMARY KEY (`reservationId`)
+  FOREIGN KEY ('userId') REFERENCES user(userId)
+  FOREIGN KEY ('vinNumber') REFERENCES vehicle(vinNumber)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -60,20 +63,20 @@ CREATE TABLE IF NOT EXISTS `reservation` (
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `User_Id` varchar(20) NOT NULL,
-  `Fb_Twtr_Id` varchar(40) NOT NULL,
-  `First_Name` varchar(20) NOT NULL,
-  `Last_Name` varchar(20) NOT NULL,
-  `Password` varchar(32) NOT NULL,
-  `Ssn` int(12) NOT NULL,
-  `Home_Address` varchar(20) NOT NULL,
-  `Work_Address` varchar(20) NOT NULL,
-  `Contact_Number` varchar(12) NOT NULL,
-  `Conctact_Method` varchar(2) NOT NULL,
-  `Email_Address` varchar(40) NOT NULL,
-  `Gender` varchar(1) NOT NULL,
-  `Car_Name` varchar(20) NOT NULL,
-  PRIMARY KEY (`User_Id`,`Fb_Twtr_Id`)
+  `userId` varchar(20) NOT NULL,
+  `fbId` varchar(40) NOT NULL,
+  `firstName` varchar(20) NOT NULL,
+  `lastName` varchar(20) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `ssn` int(12) NOT NULL,
+  `homeAddress` varchar(20) NOT NULL,
+  `workAddress` varchar(20) NOT NULL,
+  `contactNumber` varchar(12) NOT NULL,
+  `conctactMethod` varchar(2) NOT NULL,
+  `emailAddress` varchar(40) NOT NULL,
+  `gender` varchar(1) NOT NULL,
+  `carName` varchar(20) NOT NULL,
+  PRIMARY KEY (`userId`,`fbId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -83,15 +86,15 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 CREATE TABLE IF NOT EXISTS `vehicle` (
-  `VIN_NUMBER` varchar(17) NOT NULL,
-  `Model` varchar(20) NOT NULL,
-  `Make` varchar(20) NOT NULL,
-  `Color` varchar(20) NOT NULL,
-  `Year` int(4) NOT NULL,
-  `Type` varchar(20) NOT NULL,
-  `User_ID` varchar(20) NOT NULL,
-  `Vehicle_NickName` varchar(30) NOT NULL,
-  PRIMARY KEY (`VIN_NUMBER`)
+  `vinNumber` varchar(17) NOT NULL,
+  `model` varchar(20) NOT NULL,
+  `make` varchar(20) NOT NULL,
+  `color` varchar(20) NOT NULL,
+  `year` int(4) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `userId` varchar(20) NOT NULL,
+  `vehicleNickName` varchar(30) NOT NULL,
+  PRIMARY KEY (`vinNumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
