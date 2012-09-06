@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 06, 2012 at 02:58 AM
--- Server version: 5.5.8
--- PHP Version: 5.3.5
+-- Generation Time: Sep 06, 2012 at 01:09 AM
+-- Server version: 5.5.16
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -36,11 +37,6 @@ CREATE TABLE IF NOT EXISTS `address` (
   PRIMARY KEY (`Address_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `address`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -56,11 +52,6 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `Vin_Number` varchar(17) NOT NULL,
   PRIMARY KEY (`Reservation_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `reservation`
---
-
 
 -- --------------------------------------------------------
 
@@ -85,11 +76,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`User_Id`,`Fb_Twtr_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -104,11 +90,10 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
   `Year` int(4) NOT NULL,
   `Type` varchar(20) NOT NULL,
   `User_ID` varchar(20) NOT NULL,
-  `Vehicle` varchar(30) NOT NULL,
+  `Vehicle_NickName` varchar(30) NOT NULL,
   PRIMARY KEY (`VIN_NUMBER`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `vehicle`
---
-
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
