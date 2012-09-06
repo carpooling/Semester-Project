@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 06, 2012 at 01:09 AM
+-- Generation Time: Sep 06, 2012 at 02:07 AM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS `address` (
   `userId` varchar(20) NOT NULL,
   `addressId` int(10) NOT NULL,
   PRIMARY KEY (`addressId`)
-  FOREIGN KEY ('userId') REFERENCES user(userId)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -51,9 +50,24 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `origin` varchar(60) NOT NULL,
   `destination` varchar(60) NOT NULL,
   `vinNumber` varchar(17) NOT NULL,
-  PRIMARY KEY (`reservationId`)
-  FOREIGN KEY ('userId') REFERENCES user(userId)
-  FOREIGN KEY ('vinNumber') REFERENCES vehicle(vinNumber)
+  PRIMARY KEY (`reservationId`),
+  KEY `userId` (`userId`),
+  KEY `vinNumber` (`vinNumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE IF NOT EXISTS `reviews` (
+  `reviewId` varchar(20) NOT NULL,
+  `reviewText` varchar(160) NOT NULL,
+  `userId` varchar(20) NOT NULL,
+  `routeId` varchar(20) NOT NULL,
+  PRIMARY KEY (`reviewId`),
+  KEY `userId` (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -94,8 +108,32 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
   `type` varchar(20) NOT NULL,
   `userId` varchar(20) NOT NULL,
   `vehicleNickName` varchar(30) NOT NULL,
-  PRIMARY KEY (`vinNumber`)
+  PRIMARY KEY (`vinNumber`),
+  KEY `userId` (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`vinNumber`) REFERENCES `vehicle` (`vinNumber`),
+  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`);
+
+--
+-- Constraints for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`);
+
+--
+-- Constraints for table `vehicle`
+--
+ALTER TABLE `vehicle`
+  ADD CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
