@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 12, 2012 at 02:51 AM
+-- Generation Time: Sep 12, 2012 at 02:55 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -75,6 +75,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   `reviewText` varchar(160) NOT NULL,
   `userId` varchar(20) NOT NULL,
   `routeId` varchar(20) NOT NULL,
+  `reviewNumber` int(1) NOT NULL,
   PRIMARY KEY (`reviewId`),
   KEY `userId` (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
