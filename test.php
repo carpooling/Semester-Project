@@ -30,7 +30,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['first
 	if(!empty($username) && !empty($password) && !empty($firstName) && !empty($lastName) && !empty($socialSecurity) && !empty($homeAddress) && !empty($workAddress)
 		&& !empty($contactNumber) && !empty($emailAddress) && !empty($prefferedMethod) && !empty($gender) && !empty($carName)) {
 	
-		$query = "SELECT User_Id FROM user WHERE User_Id = '$username'";
+		$query = "SELECT userId FROM user WHERE User_Id = '$username'";
 		$query_run = mysql_query($query);
 		
 		if(mysql_num_rows($query_run) == 1) {

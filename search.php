@@ -13,7 +13,7 @@ if(isset($_POST['search_term'])) {
 	
 	if(!empty($search_term)) {
 		
-		$search = mysql_query("SELECT User_Id FROM user WHERE User_Id = '$search_term'");
+		$search = mysql_query("SELECT userId FROM user WHERE User_Id = '$search_term'");
 		
 		if(mysql_num_rows($search) == 1) {
 			echo 'The username ' .$search_term. ' already exists. Please select a different username';
