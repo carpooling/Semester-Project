@@ -22,6 +22,8 @@
               name.innerHTML = user.name
             }
           });
+		  FB.ui({ method: 'feed', 
+              message: 'Facebook for Websites is super-cool'});
 		  
         };
         
@@ -35,16 +37,18 @@
            ref.parentNode.insertBefore(js, ref);
 		   
          }(document));
-      </script>
-	  
-
+      
+</script> 
       <div class="fb-login-button" id ="email" scope="email,user_checkins,user_birthday,user_location" >
 	  Login with Facebook
-
-
-	  </div>
+		</div>
+		
+	   <div class="fb-like"></div>
+	   <div align="center">
+        <img id="image" >
+        <div id="name"></div>
+      </div>
 	  
-	   
     </body>
  </html>
  
