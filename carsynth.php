@@ -26,22 +26,7 @@
               message: 'Facebook for Websites is super-cool'});
 		  
         };
-
-//test
- // select the users
-   <div id="fb-root"></div>
-   <script src="http://connect.facebook.net/en_US/all.js">
-   </script>
-   <script>
-     FB.init({ 
-       appId:'YOUR_APP_ID', cookie:true, 
-       status:true, xfbml:true 
-     });
-
-     FB.ui({ method: 'apprequests', 
-       message: 'Here is a new Requests dialog...'});
-   
-   
+        
 		
         // Load the SDK Asynchronously
         (function(d){
@@ -60,7 +45,7 @@
 		
 	   <div class="fb-like"></div>
 	   <div align="center">
-        <img id="image" >
+        <img id="image" src="http://www.google.com" >
         <div id="name"></div>
       </div>
 	  
