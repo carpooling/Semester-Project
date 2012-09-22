@@ -3,10 +3,10 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Google Maps JavaScript API v3 Example: Directions Simple</title>
+    <title>Google Maps Location and Routing</title>
       <style type="text/css">
       html { height: 100% }
-      body { height: 50%; width:50%; margin: 0; padding: 0 }
+      body { height: 80%; width:8%; margin: 40; padding: 0 }
       #map_canvas { height: 100% }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -47,7 +47,7 @@
     <div>
 <input id="start" type="textbox">
 <input id="end" type="textbox">
-<input id="submit" type="button" value="submit" onclick=calcRoute();>   
+<input id="submit" type="button" value="Show Route" onclick=calcRoute();>   
     </div>
     <div id="map_canvas" style="top:30px;"></div>
   </body>
