@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rideSynth.com</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Corben:bold' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Nobile' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+
+<!--image slider links-->
+<link rel="stylesheet" type="text/css" href="slider/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="slider/css/elastislide.css" />
+		<link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css' />
+		<noscript>
+			<style>
+				.es-carousel ul{
+					display:block;
+				}
+			</style>
+		</noscript>
+  <!--image slider links ends here-->
+  
+  
+  <style type="text/css">
+      
+      
+      #map_canvas { height:400px; width:950px; margin:0 auto; position:relative; bottom:80px;   }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+      var directionDisplay;
+      var directionsService = new google.maps.DirectionsService();
+      var map;
+
+      function initialize() {
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+        var mapOptions = {
+          zoom:7,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          center: chicago
+        }
+        map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+        directionsDisplay.setMap(map);
+      }
+
+      function calcRoute() {
+        var start = document.getElementById('start').value;
+        var end = document.getElementById('end').value;
+        var request = {
+            origin:start,
+            destination:end,
+            travelMode: google.maps.DirectionsTravelMode.DRIVING
+        };
+        directionsService.route(request, function(response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+          }
+        });
+      }
+    </script>
+</head>
+
+<body onload="initialize()">
+
+
+</body>
+<!--top div starts here-->
+
+	<div id="header">
+        
+        <img src="images/search-button.png" alt="search button" id="signin-button" class="button" />
+    
+    
+    	<form method="get" action="search/" name="searchform" class="search">
+			<input  type="text" alt="enter your email or password" value="email/username">
+			<input  type="text" alt="enter your password" value="password" >
+            
+	
+			</form>
+
+	</div>
+
+    <!--kotuwa starts here-->
+    <div id="kotuwa">
+   
+   <!-- <a href=""><img id="fblogo" src="images/fblogo.png" alt="I'm looking for a lift"  /></a>
+    
+    <div id="user-input">
+            
+            	<a href=""><img src="images/lifet.png" alt="I'm looking for a lift"  /></a>
+            	<a href=""><img src="images/share.png" alt="I want to share my car" /></a>
+                -->
+                
+             <div id="description">
+             	<div id="text">
+             		<p>Sharing has never been so safe. You can be fully assured while using our service about yourself, your car, your near ones and loved ones. Our Rating algorithm intelligently rates a user based on your feedback and gives you a clear picture about your ride buddies.</p>
+             	</div>
+            
+            </div>
+     
+		
+</div>
+<!--kotuwa ends here-->
+
+
+<div id="map_canvas">
+
+
+
+</div>
+
+
+    
+      
+
+
+    <!--footer starts here-->
+            <div id="footer" style="top:450px;">
+            
+            	<div id="footer-links">
+            		<a href="">About</a>
+           			<a href="">Contact us</a>
+            		<a href="">Blog</a>
+            		<a href="">Legal</a>
+            		<a href="">FAQ</a>
+            		<a href="">Privacy Policy</a>
+            		<a href="">Support and Help</a>
+            	</div>
+                
+                <div id="copyright">
+                	<p>Copyright © 2009-2012 RideSynth Inc.</p>
+                </div>
+            
+            	
+            </div>	
+            <!--footer ends here-->
+    
+	
+</div>
+<!--top div ends here-->
+</div>
+</html>

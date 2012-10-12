@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {margin:0;
+	  padding:0;
+	 font-family: 'Nobile', Helvetica, Arial, sans-serif;
+	 text-rendering: optimizelegibility;
+	 }
+	 
+img {border:0;}
+
+
+#header {width:100%;
+		height:70px;
+		border:solid 1px #000000;
+		}
+
+
+.button:hover {opacity:.7;}
+#kotuwa { height:80px;
+		   width:100%;
+		   background:url(images/checker_medium.png) repeat;
+		   position:relative;
+		   left:0px;
+		   z-index:10;
+		   margin:0 auto;
+		  }
+
+
+
+
+			   
+.search {float:right;
+		 position:relative;
+		 right:30px;
+		 top:20px
+}
+
+input {width:170px;
+		height:25px;
+		border:#000 1px solid;
+		border-radius:3px;
+		padding-left:10px;}
+		
+#signin-button {float:right;
+				position:relative;
+				top:21px;
+				right:25px;
+}
+
+#user-input { width:575px;
+			 height:100px;
+			 opacity:1;
+			 bottom:400px;
+			 position:relative;
+			 top:12px;
+			 left:20px;
+			}
+#user-input img {display:inline-block;
+
+				 }
+#fblogo {float:right;
+		 top:20px;
+		 right:20px;
+		 position:relative;	
+	
+}
+
+.user-input img:hover {opacity:.7;}
+
+.user-input:hover {opacity:1;}
+
+
+#description {font-family: 'Lato', sans-serif;
+			 font-size:16px;
+			 color:#FFFFFF;
+			}
+
+#text {width:200px;
+	   height:inherit;
+    	margin:0 auto;
+		border:solid 1px #CCCCCC;}
+
+
+
+/*footer styles starts here*/
+
+#footer {border-top:solid 4px #999;
+		position:relative;
+		top:100px;
+		height:100px;
+		width:80%;
+		margin:0 auto;}
+
+#footer-links  {width:478px;
+				margin:0 auto;
+				position:relative;
+				top:10px;
+				}
+				
+#footer-links a {margin-right:15px;
+				text-decoration:none;
+				font-size:10px;
+				color:#666666;				
+				 }
+#footer-links a:hover {color:#069;}
+
+#copyright p {margin:0 auto;
+			  position:relative;
+			  top:25px;
+			  width:220px;
+			  font-size:10px;
+			  color:#666;
+			  }
+
