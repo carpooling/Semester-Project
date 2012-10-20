@@ -1,9 +1,12 @@
+<title>Sign Up with rideSynth </title>
+<h2>Please enter the requested information in order to sign up with rideSynth </h2>
+
 <?php
 $mysql_host = 'localhost';
 $mysql_user = 'root';
 $mysql_pass = '';
 $mysql_db = 'carpooling';
-
+error_reporting (E_ALL ^ E_NOTICE);
 if(!mysql_connect($mysql_host, $mysql_user, $mysql_pass) || !mysql_select_db($mysql_db)) {
 	die(mysql_error());
 }
@@ -50,8 +53,6 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['first
 	}
 }
 ?>
-<title>Sign Up with rideSynth </title>
-<h2>Please enter the requested information in order to sign up with rideSynth </h2>
 <form action = "signUp.php" method = "POST">
 <div id = "search_results"></div>
 	Username:   <br /><input required title = "username is required" id = "search" type = "text" name = "username"><br /><br />
@@ -63,8 +64,14 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['first
 	Work Address:   <br /><input type = "text" name = "workAddress" required title = "Work Address required"><br /><br />
 	Contact Number: <br/>(XXX-XXX-XXXX format) <br /><input type = "tel" name = "contactNumber" required pattern = "^\d{3}-?\d{3}-?\d{4}$|^XXX-XXX-XXXX$" title = "Enter a Phone number"><br /><br />
 	Email Address: <br /><input type = "email" name = "emailAddress" required><br /><br />
-	Preffered Contact Method: <br /><input type = "text" name = "prefferedMethod" required><br /><br />
-	Gender: <br /><input type = "text" name = "gender" maxlength = "1" required title = "Gender required"><br /><br />
+	Preffered Contact Method: <br /><select id = "contactMethod" name = "prefferedMethod">
+							<option value = "Em" selected>E-mail</option>
+							<option value = "Ph">Phone </option>
+							</select><br /><br />
+	Gender: <br /><select id = "gender" name = "gender">
+			<option value = "M" selected>Male</option>
+			<option value = "F">Female</option>
+			</select><br/><br/>
 	Car Name: <br /><input required title = "Car name required" type = "text" name = "carName"><br /><br />
 	<input type = "submit" value = "Submit">
 </form>
