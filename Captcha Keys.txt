@@ -1,0 +1,9 @@
+Domain Name: 	carpool.pasindu.me
+
+This is a global key. It will work across all domains.
+Public Key: 	6LccqNcSAAAAANZEYK9BNSS55w73niGyIxCK_3yx
+
+Use this in the JavaScript code that is served to your users
+Private Key: 	6LccqNcSAAAAADlk-Y8QGXFJiC2fe3znW_U2uR7z
+
+Use this when communicating between your server and our server. Be sure to keep it a secret.
